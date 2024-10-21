@@ -37,9 +37,11 @@ const Pricing = () => {
   ];
 
   return (
-    <Flex flexDir="column" align="center" paddingInline="2rem">
+    <Flex id="pricing" flexDir="column" align="center" p="2rem">
       <Flex flexDir="column" mb="2rem">
-        <Text>PRICING</Text>
+        <Text fontSize="lg" color="#e67e22" fontWeight="600">
+          PRICING
+        </Text>
         <Heading fontFamily="Poppins, sans-serif" fontWeight="bold">
           Eating well without breaking your bank
         </Heading>
@@ -54,7 +56,12 @@ const Pricing = () => {
               justify="center"
               key={index}
               boxShadow="xl"
-              minW="24rem"
+              minW={{
+                base: "19rem",
+                md: "19rem",
+                lg: "24rem",
+                xl: "24rem",
+              }}
               paddingBlock="2rem"
               borderRadius="lg"
               spacing="1rem"
@@ -66,8 +73,13 @@ const Pricing = () => {
                 textAlign="center"
                 pos="absolute"
                 top="1rem"
-                pl="1.5rem"
-                right="-9rem"
+                right={{
+                  base: "-6rem",
+                  md: "-6rem",
+                  lg: "-9rem",
+                  xl: "-9rem",
+                }}
+                pl="2rem"
                 w="full"
                 fontWeight="bolder"
                 fontSize="xs"

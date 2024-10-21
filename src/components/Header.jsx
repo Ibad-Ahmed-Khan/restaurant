@@ -1,29 +1,53 @@
-import { Box, Flex, Link, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import TryFreeButton from "../pages/TryFreeButton";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useStore } from "../Zustand";
+import { Link } from "react-scroll";
+import Logo from "./Logo";
 
 const Header = () => {
   const Links = [
-    { link: "How its work?" },
-    { link: "meals " },
-    { link: "Testimonails " },
-    { link: "pricing " },
+    { to: "HowToWork", link: "How its work?" },
+    { to: "meals", link: "meals " },
+    { to: "Testimonails", link: "Testimonails " },
+    { to: "pricing", link: "pricing " },
   ];
 
   const { hamburger, handleHamburger } = useStore();
+
+  const totalOffset = -70;
+
   return (
     <SimpleGrid
       columns="2"
       w="full"
+      alignItems="center"
+      justifyContent="center"
       minH="5rem"
       paddingInline="2rem"
       fontWeight="bold"
-      bg="#fff"
+      bg="#fdf2e9"
     >
-      <Flex align="center" textTransform="uppercase">
-        Ibad Ahmed Khan
+      <Flex
+        align="center"
+        justify="center"
+        textTransform="uppercase"
+        _hover={{ color: "#e67e22" }}
+        w="10rem"
+        zIndex="222"
+      >
+        <Link
+          _hover={{ color: "#e67e22", textDecoration: "none" }} // Add textDecoration to remove the default underline
+          w="10rem"
+          to="logo"
+          smooth={true}
+          offset={totalOffset}
+          duration={500}
+          style={{ color: "inherit" }} // Ensure the link inherits the color from the parent
+        >
+          <Logo />
+        </Link>
       </Flex>
 
       {/* Desktop Menu */}
@@ -34,11 +58,23 @@ const Header = () => {
         textTransform="capitalize"
       >
         {Links.map((item, index) => (
-          <Link key={index} fontWeight="bold">
-            {item.link}
+          <Link
+            key={index}
+            to={item.to}
+            smooth={true}
+            offset={totalOffset}
+            duration={500}
+            spy={true}
+            cursor="pointer"
+          >
+            <Box cursor="pointer" _hover={{ color: "#e67e22" }}>
+              {item.link}
+            </Box>
           </Link>
         ))}
-        <TryFreeButton name={"Try for free"} />
+        <Link to="contact" smooth={true} offset={totalOffset} duration={500}>
+          <TryFreeButton name={"Try for free"} />
+        </Link>
       </Flex>
 
       {/* Mobile Menu Icon */}
@@ -86,11 +122,29 @@ const Header = () => {
         zIndex="overlay"
       >
         {Links.map((item, index) => (
-          <Link key={index} fontWeight="bold">
+          <Link
+            key={index}
+            to={item.to}
+            smooth={true}
+            offset={totalOffset}
+            duration={500}
+            spy={true}
+            cursor="pointer"
+            onClick={handleHamburger}
+          >
             {item.link}
           </Link>
         ))}
-        <TryFreeButton name={"Try for free"} />
+        <Link
+          to="contact"
+          smooth={true}
+          offset={totalOffset}
+          duration={500}
+          spy={true}
+          onClick={handleHamburger}
+        >
+          <TryFreeButton name={"Try for free"} />
+        </Link>
       </Flex>
     </SimpleGrid>
   );

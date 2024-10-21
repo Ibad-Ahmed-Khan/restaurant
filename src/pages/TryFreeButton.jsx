@@ -4,7 +4,13 @@ import { useStore } from "../Zustand";
 
 const TryFreeButton = ({ name }) => {
   return (
-    <Button color="#fff" bg="#e67e22" h="3rem" borderRadius="xl">
+    <Button
+      color="#fff"
+      bg="#e67e22"
+      h="3rem"
+      borderRadius="xl"
+      _hover={{ bg: "#21160a" }}
+    >
       {name}
     </Button>
   );

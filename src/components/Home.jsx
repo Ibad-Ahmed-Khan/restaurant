@@ -29,11 +29,13 @@ const Home = () => {
 
   return (
     <Flex
+      id="logo"
       flexDir={{ base: "column", md: "column", lg: "row", xl: "row" }}
       align="center"
       justify="center"
       w="full"
-      paddingInline={{ base: "2rem", md: "2rem", lg: "4rem", xl: "4rem" }}
+      bg="#fdf2e9"
+      p={{ base: "2rem", md: "2rem", lg: "4rem", xl: "4rem" }}
     >
       <VStack
         align="start"
@@ -56,8 +58,8 @@ const Home = () => {
             {Boxes.map((box, index) => {
               return (
                 <Box
-                  w="3rem"
-                  h="3rem"
+                  w={{ base: "2.5rem", lg: "3rem" }}
+                  h={{ base: "2.5rem", lg: "3rem" }}
                   border="3px solid #fff "
                   borderRadius="50%"
                   mr="-1rem"

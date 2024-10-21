@@ -44,12 +44,17 @@ const PricingBottom = () => {
       {data.map((item, index) => (
         <Flex
           flexDir="column"
-          w="20rem"
+          w={{
+            base: "full",
+            md: "full",
+            lg: "20rem",
+            xl: "20rem",
+          }}
           //   align="center"
-          justify="center"
+          // justify="center"
           key={index}
           borderRadius="lg"
-          p="2rem"
+          paddingBlock="2rem"
         >
           <Flex
             align="center"

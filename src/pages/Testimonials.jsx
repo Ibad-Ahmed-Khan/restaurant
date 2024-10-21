@@ -1,4 +1,4 @@
-import { Flex, Heading, Img, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Img, SimpleGrid, Text } from "@chakra-ui/react";
 import React from "react";
 import Test1 from "../assets/test1.jpg";
 import Test2 from "../assets/test2.jpg";
@@ -63,6 +63,7 @@ const Testimonials = () => {
 
   return (
     <Flex
+      id="Testimonails"
       flexDirection="column"
       w="full"
       minH="110vh"
@@ -75,7 +76,9 @@ const Testimonials = () => {
       <SimpleGrid columns={{ base: "1", md: "1", lg: "2", xl: "2" }} gap="2rem">
         <Flex flexDir="column" align="center" justify="space-evenly" gap="2rem">
           <Flex flexDir="column" w="full">
-            <Text> TESTIMONIALS</Text>
+            <Text fontSize="lg" color="#e67e22" fontWeight="600">
+              TESTIMONIALS
+            </Text>
             <Heading fontFamily="Poppins, sans-serif">
               Once you trie it, you can't go back.
             </Heading>
@@ -86,7 +89,7 @@ const Testimonials = () => {
           >
             {Arr1.map((item, index) => {
               return (
-                <Flex flexDir="column" gap="1rem" key={index} w="20rem">
+                <Flex flexDir="column" gap="1rem" key={index}>
                   <Img src={item.img} w="4rem" borderRadius="50%" />
                   <Text>{item.description} </Text>
                   <Text color="gray.600">{item.name} </Text>
@@ -98,7 +101,20 @@ const Testimonials = () => {
         <Flex align="center" justify="end">
           <SimpleGrid columns="3" gap="1rem">
             {Arr2.map((item, index) => {
-              return <Img key={index} w="12rem" src={item} />;
+              return (
+                <Box overflow="hidden" maxW="12rem">
+                  <Img
+                    _hover={{
+                      transform: "scale(1.1)",
+                      boxShadow: "lg",
+                    }}
+                    transition="all 0.3s ease-in-out"
+                    objectFit="cover"
+                    key={index}
+                    src={item}
+                  />
+                </Box>
+              );
             })}
           </SimpleGrid>
         </Flex>

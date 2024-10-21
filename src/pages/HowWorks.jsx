@@ -30,11 +30,15 @@ const HowWorks = () => {
   ];
 
   return (
-    <Flex flexDir="column" minH="100vh" paddingInline="3rem">
-      <Text>HOW IT WORKS</Text>
-      <Heading fontFamily="Poppins, sans-serif">
-        Your daily dose of health in 3 simple steps
-      </Heading>
+    <Flex id="HowToWork" flexDir="column" minH="100vh" p="2rem" gap="2rem">
+      <Flex flexDir="column">
+        <Text fontSize="lg" color="#e67e22" fontWeight="600">
+          HOW IT WORKS
+        </Text>
+        <Heading fontFamily="Poppins, sans-serif">
+          Your daily dose of health in 3 simple steps
+        </Heading>
+      </Flex>
       <Flex flexDir="column" gap="2rem">
         {Array.map((item, index) => {
           return (
@@ -57,9 +61,13 @@ const HowWorks = () => {
                 <Text fontSize="3rem" fontWeight="bolder" color="gray.300">
                   0{index + 1}
                 </Text>
-                <Heading fontFamily="Poppins, sans-serif">
+                <Text
+                  fontSize="xl"
+                  fontWeight="700"
+                  fontFamily="Poppins, sans-serif"
+                >
                   {item.title}{" "}
-                </Heading>
+                </Text>
                 <Text fontSize="1.1rem" color="gray.700">
                   {item.description}
                 </Text>
@@ -69,17 +77,38 @@ const HowWorks = () => {
                 justify="center"
                 w={{ base: "full", md: "full", lg: "40%", xl: "40%" }}
                 pos="relative"
+                paddingBlock="2rem"
               >
                 <Flex
-                  minW="23rem"
-                  minH="23rem"
+                  minW={{
+                    base: "21rem",
+                    md: "21rem",
+                    lg: "23rem",
+                    xl: "23rem",
+                  }}
+                  minH={{
+                    base: "21rem",
+                    md: "21rem",
+                    lg: "23rem",
+                    xl: "23rem",
+                  }}
                   bg="#fdf2e9"
                   pos="absolute"
                   borderRadius="50%"
                 />
                 <Flex
-                  minW="20rem"
-                  minH="20rem"
+                  minW={{
+                    base: "18rem",
+                    md: "18rem",
+                    lg: "20rem",
+                    xl: "20rem",
+                  }}
+                  minH={{
+                    base: "18rem",
+                    md: "18rem",
+                    lg: "20rem",
+                    xl: "20rem",
+                  }}
                   bg="#fae5d3"
                   pos="absolute"
                   borderRadius="50%"
@@ -87,8 +116,18 @@ const HowWorks = () => {
                 <Img
                   objectFit="cover"
                   zIndex="1"
-                  maxW="20rem"
-                  maxH="20rem"
+                  maxW={{
+                    base: "18rem",
+                    md: "18rem",
+                    lg: "20rem",
+                    xl: "20rem",
+                  }}
+                  maxH={{
+                    base: "18rem",
+                    md: "18rem",
+                    lg: "20rem",
+                    xl: "20rem",
+                  }}
                   src={item.img}
                 />
               </Flex>
